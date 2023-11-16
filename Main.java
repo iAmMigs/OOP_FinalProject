@@ -22,7 +22,7 @@ public class Main {
 
                 switch (input) {
                     case 1: // Create Account
-                        
+                    
                         break;
                     case 2: // Balance
                         
