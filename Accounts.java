@@ -11,9 +11,7 @@ public class Accounts {
     private double balance;
     private int pin;
 
-    public Accounts(String firstName, String lastName, String middleName, String address, String birthday,
-                   String gender, String accountType, double initialDeposit, int pin) {
-        // Set the new parameters accordingly
+    public Accounts(String firstName, String lastName, String middleName, String address, String birthday,String gender, String accountType, double initialDeposit, int pin) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleName = middleName;
@@ -21,7 +19,7 @@ public class Accounts {
         this.birthday = birthday;
         this.gender = gender;
         this.accountType = accountType;
-        this.balance = initialDeposit; // Set balance to initial deposit
+        this.balance = initialDeposit;
         this.pin = pin;
     }
 
