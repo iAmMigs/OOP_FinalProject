@@ -1,9 +1,7 @@
 import java.util.Scanner;
 
 public class Accounts {
-    private String firstName;
-    private String lastName;
-    private String middleName;
+    private String fullName;
     private String address;
     private String birthday;
     private String gender;
@@ -11,10 +9,8 @@ public class Accounts {
     private double balance;
     private int pin;
 
-    public Accounts(String firstName, String lastName, String middleName, String address, String birthday,String gender, String accountType, double initialDeposit, int pin) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.middleName = middleName;
+    public Accounts(String fullName, String address, String birthday,String gender, String accountType, double initialDeposit, int pin) {
+        this.fullName = fullName;
         this.address = address;
         this.birthday = birthday;
         this.gender = gender;
@@ -25,19 +21,29 @@ public class Accounts {
 
     // Getter
 
-    public String getFirstName() {
-        return firstName;
+    public String gefullName() {
+        return fullName;
     }
 
-    
-    public String getLastName() {
-        return lastName;
+    public String getAddress() {
+        return address;
     }
 
-    public double getBalance() {
+    public String getBirthday() { // Temporary to need ng exception handling pag nag input ng birthday.
+        return birthday;
+    }
+
+    public String getGender(){
+        return gender;
+    }
+
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public String getBalance(){
         return balance;
     }
-
 
     public int getPin() {
         return pin;
@@ -45,12 +51,24 @@ public class Accounts {
 
     //Setter
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFulltName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public void setGender(String gender){
+        this.gender = gender;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
     }
 
     public void setBalance(double balance) {
