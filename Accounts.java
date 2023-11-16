@@ -41,7 +41,7 @@ public class Accounts {
         return accountType;
     }
 
-    public String getBalance(){
+    public dobule getBalance(){
         return balance;
     }
 
