@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Accounts {
     private String fullName;
     private String address;
