@@ -16,13 +16,14 @@ public class Main {
             System.out.println("|||  3. Deposit               4. Withdraw         |||");
             System.out.println("|||  5. Account Information   6. Close Account    |||");
             System.out.println("|||  7. Exit                                      |||");
+            System.out.println("$$$-----------------------------------------------$$$");
             System.out.println("What would you like to do today?");
             try {
                 input = sc.nextInt();
 
                 switch (input) {
                     case 1: // Create Account
-                    
+
                         break;
                     case 2: // Balance
                         
