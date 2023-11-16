@@ -39,7 +39,7 @@ public class Accounts {
         return accountType;
     }
 
-    public dobule getBalance(){
+    public double getBalance(){
         return balance;
     }
 
