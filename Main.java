@@ -1,6 +1,6 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.io.FileReader;
+import java.util.ArrayList;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedReader;
@@ -8,7 +8,10 @@ import java.io.BufferedReader;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        ArrayList<Account> accounts = new ArrayList<Account>();
         boolean exit = false;
+        BufferedReader fr;
+        FileWriter fw;
         while (!exit) {
             int input;
             clearScreen();
@@ -27,8 +30,12 @@ public class Main {
 
                 switch (input) {
                     case 1: // Create Account
-                        
-                        
+                        String fullName;
+                        String address;
+                        String birthday;
+                        String 
+
+
                         break;
                     case 2: // Balance
                         
@@ -47,13 +54,14 @@ public class Main {
                         break;
                     case 7: // Exit
                         System.out.println("Thank you for using WeLiveWeLoveWeLie Banking Corporation!");
-                        exit = true;
+                        sc.next();
+                        System.exit(0);
                         break;
                     default:
                         System.out.println("Invalid input. Please try again.");
                         break;
                 }
-            } catch (InputMismatchException e) {
+            } catch (InputMismatchException /*| IOException*/ e) {
                 System.out.println("Invalid input. Please try again.");
                 sc.nextLine();
                 pause();
