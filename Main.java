@@ -33,7 +33,6 @@ public class Main {
                         String fullName;
                         String address;
                         String birthday;
-                        String 
 
 
                         break;

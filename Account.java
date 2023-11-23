@@ -19,6 +19,6 @@ public class Account extends Info{
         this.balance = initialDeposit;
         this.pin = pin;
     }
-    
+
 
 }
