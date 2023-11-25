@@ -32,7 +32,7 @@ public class Main {
                     case 1: // Create Account
                         String fName = "" , add = "", bday = "", gen = "", accType = "";
                         double bal = 0;
-                        int pin = 0;
+                        Integer pin = 0;
                         int accountNumber = 0;
 
                         System.out.println("Please enter your full name: ");
@@ -45,11 +45,20 @@ public class Main {
                         gen = sc.nextLine();
                         System.out.println("Please enter your account type: ");
                         accType = sc.nextLine();
+
                         //Lagyan ng if statement para sa account type
                         System.out.println("Please enter your initial deposit: ");
                         bal = sc.nextDouble();
                         System.out.println("Please enter your pin: ");
-                        pin = sc.nextInt();
+                        
+                        while (pin < 100000 || pin > 999999) {
+                            System.out.println("Please enter a 6-digit pin: ");
+                            try {
+                                pin = Integer.parseInt(sc.nextLine());
+                            } catch (NumberFormatException | InputMismatchException e) {
+                                System.out.println("Invalid input. Please enter a valid 6-digit pin.");
+                            }
+                        }
                         //Lagyan ng if statement para sa pin
 
                         //More statements hanggang verified lahat
