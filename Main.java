@@ -27,15 +27,50 @@ public class Main {
             System.out.println("What would you like to do today?");
             try {
                 input = sc.nextInt();
-
+                sc.nextLine();
                 switch (input) {
                     case 1: // Create Account
-                        String fName, add, bday, gen, accType, bal, pin;
+                        String fName = "" , add = "", bday = "", gen = "", accType = "";
+                        double bal = 0;
+                        int pin = 0;
+                        int accountNumber = 0;
 
                         System.out.println("Please enter your full name: ");
-                        fullName = sc.nextLine();
+                        fName = sc.nextLine();
+                        System.out.println("Please enter your address: ");
+                        add = sc.nextLine();
+                        System.out.println("Please enter your birthday: ");
+                        bday = sc.nextLine();
+                        System.out.println("Please enter your gender: ");
+                        gen = sc.nextLine();
+                        System.out.println("Please enter your account type: ");
+                        accType = sc.nextLine();
+                        //Lagyan ng if statement para sa account type
+                        System.out.println("Please enter your initial deposit: ");
+                        bal = sc.nextDouble();
+                        System.out.println("Please enter your pin: ");
+                        pin = sc.nextInt();
+                        //Lagyan ng if statement para sa pin
 
+                        //More statements hanggang verified lahat
 
+                        accountNumber = AccountInterface.accdId;
+
+                        Account account = new Account(fName, add, bday, gen, accType, bal, pin, accountNumber);
+
+                        fw = new FileWriter("Accounts\\" + accountNumber + ".txt");
+                        fw.write(fName + "\n");
+                        fw.write(add + "\n");
+                        fw.write(bday + "\n");
+                        fw.write(gen + "\n");
+                        fw.write(accType + "\n");
+                        fw.write(bal + "\n");
+                        fw.write(pin + "\n");
+                        fw.close();
+
+                        accounts.add(account);
+                        //System.out.println("Account created successfully!");
+                        //sc.next();
                         break;
                     case 2: // Balance
                         
@@ -61,7 +96,7 @@ public class Main {
                         System.out.println("Invalid input. Please try again.");
                         break;
                 }
-            } catch (InputMismatchException /*| IOException*/ e) {
+            } catch (InputMismatchException | IOException e) {
                 System.out.println("Invalid input. Please try again.");
                 sc.nextLine();
                 pause();
@@ -79,4 +114,5 @@ public class Main {
         System.out.println("Press enter to continue...");
         sc.nextLine();
     }
+
 }
