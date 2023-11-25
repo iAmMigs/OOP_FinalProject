@@ -35,6 +35,7 @@ public class Main {
                         int pin;
 
                         System.out.println("Please enter your full name: ");
+                        sc.nextLine();
                         fullName = sc.nextLine();
 
                         System.out.println("Please enter your address: ");
