@@ -94,8 +94,9 @@ public class Main {
                         fw.close();
 
                         accounts.add(account);
-                        //System.out.println("Account created successfully!");
-                        //sc.next();
+
+                        System.out.println("Account created successfully! Your account number is " + accountNumber +);
+                        pause();
                         break;
                     case 2: // Balance
                         
