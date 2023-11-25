@@ -6,5 +6,6 @@ public class Info implements AccountInterface {
     protected String accountType;
     protected double balance;
     protected int pin;
+    protected int accountNumber;
 
 }
