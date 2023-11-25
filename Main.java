@@ -30,9 +30,10 @@ public class Main {
 
                 switch (input) {
                     case 1: // Create Account
-                        String fullName, address, birthday, gender, accType, bal, pin;
+                        String fName, add, bday, gen, accType, bal, pin;
+
                         System.out.println("Please enter your full name: ");
-                        fullName = sc.Line();
+                        fullName = sc.nextLine();
 
 
                         break;
