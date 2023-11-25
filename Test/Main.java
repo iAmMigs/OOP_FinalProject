@@ -31,8 +31,23 @@ public class Main {
                 switch (input) {
                     case 1: // Create Account
                         String fullName, address, birthday, gender, accType, bal, pin;
-                        System.out.println("Please enter your full name: ");
-                        fullName = sc.Line();
+                        System.out.println("Please enter your address: ");
+                        address = sc.nextLine();
+
+                        System.out.println("Please enter your birthday (yyyy/MM/dd): ");
+                        birthday = sc.nextLine();
+
+                        System.out.println("Please enter your gender: ");
+                        gender = sc.nextLine();
+
+                        System.out.println("Please enter your account type: ");
+                        accType = sc.nextLine();
+
+                        System.out.println("Please enter your initial balance: ");
+                        bal = sc.nextLine();
+
+                        System.out.println("Please enter your PIN: ");
+                        pin = sc.nextLine();
 
 
                         break;
