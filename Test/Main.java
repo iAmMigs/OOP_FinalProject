@@ -57,7 +57,9 @@ public class Main {
 
                         Account newAccount = new Account(fullName, address, birthday, gender, accType, bal, pin);
                         accounts.add(newAccount);
-                        
+
+                        System.out.println("Account created successfully!");
+
                         break;
                     case 2: // Balance
                         
