@@ -53,11 +53,17 @@ public class Main {
                         
                         while (pin < 100000 || pin > 999999) {
                             try {
-                                pin = Integer.parseInt(sc.nextLine());
+                                String pinInput = sc.nextLine();
+                                if (pinInput.matches("\\d{6}")) {
+                                    pin = Integer.parseInt(pinInput);
+                                } else {
+                                    System.out.println("Please enter a valid 6-digit pin.");
+                                }
                             } catch (NumberFormatException | InputMismatchException e) {
                                 System.out.println("Please enter a valid 6-digit pin.");
                             }
                         }
+                        
                         //Lagyan ng if statement para sa pin
 
                         //More statements hanggang verified lahat
