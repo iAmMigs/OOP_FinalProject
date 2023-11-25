@@ -115,7 +115,6 @@ public class Main {
                         break;
                     case 7: // Exit
                         System.out.println("Thank you for using WeLiveWeLoveWeLie Banking Corporation!");
-                        sc.next();
                         System.exit(0);
                         break;
                     default:
