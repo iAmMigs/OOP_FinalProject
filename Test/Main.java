@@ -74,8 +74,27 @@ public class Main {
                         
                         break;
                     case 5: // Account Info
-                        
-                        break;
+                    
+                    System.out.println("Account Information:");
+
+                    if (accounts.isEmpty()) {
+                        System.out.println("No accounts found.");
+                    } else {
+                        for (Account account : accounts) {
+                            System.out.println("Account Holder: " + account.getFullName());
+                            System.out.println("Address: " + account.getAddress());
+                            System.out.println("Birthday: " + account.getBirthday());
+                            System.out.println("Gender: " + account.getGender());
+                            System.out.println("Account Type: " + account.getAccountType());
+                            System.out.println("Balance: $" + account.getBalance());
+                            System.out.println("PIN: " + account.getPin());
+                            System.out.println("-----------------------------");
+                        }
+                    }
+            
+                    pause();
+
+                    break; 
                     case 6: // Close/Delete Account
                         
                         break;

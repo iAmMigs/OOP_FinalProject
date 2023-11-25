@@ -20,5 +20,33 @@ public class Account extends Info{
         this.pin = pin;
     }
 
+    public double getBalance() {
+        return balance;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public int getPin() {
+        return pin;
+    }
+
 
 }
