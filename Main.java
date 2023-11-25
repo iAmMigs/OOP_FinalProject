@@ -108,7 +108,28 @@ public class Main {
                         
                         break;
                     case 5: // Account Info
-                        
+                        System.out.println("Please enter account number: ");
+                        String accNum = sc.nextLine();
+
+                        //Add Pin verification
+
+                        fr = new BufferedReader(new FileReader("Accounts\\" + accNum + ".txt"));
+                        String chr;
+                        int line = 1;
+
+                        while ((chr = fr.readLine()) != null) {
+                            if(line == 1) System.out.print("Account Number: ");
+                            else if(line == 2) System.out.print("Name: ");
+                            else if(line == 3) System.out.print("Address: ");
+                            else if(line == 4) System.out.print("Birthday: ");
+                            else if(line == 5) System.out.print("Gemder: ");
+                            else if(line == 6) System.out.print("Account Type:");
+                            else if(line == 7) System.out.print("Initial Deposit: ");
+                            else if(line == 8) System.out.print("Current Balance: ");
+                            System.out.println(chr);
+                            line++;
+                        }
+                        fr.close();
                         break;
                     case 6: // Close/Delete Account
                         
