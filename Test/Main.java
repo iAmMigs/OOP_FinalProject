@@ -86,7 +86,7 @@ public class Main {
                             System.out.println("Birthday: " + account.getBirthday());
                             System.out.println("Gender: " + account.getGender());
                             System.out.println("Account Type: " + account.getAccountType());
-                            System.out.println("Balance: $" + account.getBalance());
+                            System.out.println("Balance: " + account.getBalance());
                             System.out.println("PIN: " + account.getPin());
                             System.out.println("-----------------------------");
                         }
