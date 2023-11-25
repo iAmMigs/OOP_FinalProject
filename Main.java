@@ -95,7 +95,7 @@ public class Main {
 
                         accounts.add(account);
 
-                        System.out.println("Account created successfully! Your account number is " + accountNumber +);
+                        System.out.println("Account created successfully! Your account number is " + accountNumber);
                         pause();
                         break;
                     case 2: // Balance
