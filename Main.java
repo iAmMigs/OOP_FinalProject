@@ -52,11 +52,10 @@ public class Main {
                         System.out.println("Please enter your pin: ");
                         
                         while (pin < 100000 || pin > 999999) {
-                            System.out.println("Please enter a 6-digit pin: ");
                             try {
                                 pin = Integer.parseInt(sc.nextLine());
                             } catch (NumberFormatException | InputMismatchException e) {
-                                System.out.println("Invalid input. Please enter a valid 6-digit pin.");
+                                System.out.println("Please enter a valid 6-digit pin.");
                             }
                         }
                         //Lagyan ng if statement para sa pin
