@@ -61,6 +61,8 @@ public class Main {
 
                         System.out.println("Account created successfully!");
 
+                        pause();
+
                         break;
                     case 2: // Balance
                         
