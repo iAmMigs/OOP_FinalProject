@@ -30,7 +30,13 @@ public class Main {
 
                 switch (input) {
                     case 1: // Create Account
-                        String fullName, address, birthday, gender, accType, bal, pin;
+                        String fullName, address, birthday, gender, accType;
+                        double bal;
+                        int pin;
+
+                        System.out.println("Please enter your full name: ");
+                        fullName = sc.nextLine();
+
                         System.out.println("Please enter your address: ");
                         address = sc.nextLine();
 
@@ -44,12 +50,14 @@ public class Main {
                         accType = sc.nextLine();
 
                         System.out.println("Please enter your initial balance: ");
-                        bal = sc.nextLine();
+                        bal = sc.nextDouble();
 
                         System.out.println("Please enter your PIN: ");
-                        pin = sc.nextLine();
+                        pin = sc.nextInt();
 
-
+                        Account newAccount = new Account(fullName, address, birthday, gender, accType, bal, pin);
+                        accounts.add(newAccount);
+                        
                         break;
                     case 2: // Balance
                         
