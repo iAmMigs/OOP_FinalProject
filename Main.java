@@ -30,9 +30,8 @@ public class Main {
                 sc.nextLine();
                 switch (input) {
                     case 1: // Create Account
-                        String fName = "" , add = "", bday = "", gen = "", accType = "";
+                        String fName = "" , add = "", bday = "", gen = "", accType = "", pin = "";
                         double bal = 0;
-                        Integer pin = 0;
                         int accountNumber = 0;
 
                         System.out.println("Please enter your full name: ");
@@ -50,24 +49,36 @@ public class Main {
                         System.out.println("Please enter your initial deposit: ");
                         bal = sc.nextDouble();
                         System.out.println("Please enter your pin: ");
-                        
-                        while (pin < 100000 || pin > 999999) {
-                            try {
+                        sc.nextLine();
+                        while (true) {
                                 String pinInput = sc.nextLine();
                                 if (pinInput.matches("\\d{6}")) {
-                                    pin = Integer.parseInt(pinInput);
+                                    pin = pinInput;
+                                    break;
                                 } else {
                                     System.out.println("Please enter a valid 6-digit pin.");
                                 }
-                            } catch (NumberFormatException | InputMismatchException e) {
-                                System.out.println("Please enter a valid 6-digit pin.");
-                            }
                         }
-                        
-                        //Lagyan ng if statement para sa pin
 
-                        //More statements hanggang verified lahat
+                        //Verify information
 
+                        System.out.println("Please verify all information that you have provided: ");
+                        System.out.println("Full Name: " + fName);
+                        System.out.println("Address: " + add);
+                        System.out.println("Birthday: " + bday);
+                        System.out.println("Gender: " + gen);
+                        System.out.println("Account Type: " + accType);
+                        System.out.println("Initial Deposit: " + bal);
+                        System.out.println("Pin: " + pin);
+
+                        System.out.println("Is the information correct? (Y/N)");
+                        String verify = sc.nextLine();
+                        if (verify.equalsIgnoreCase("N")) {
+                            System.out.println("Please try again.");
+                            break;
+                        }
+
+                        //Inforrmation verified and creating account
                         accountNumber = AccountInterface.accdId;
 
                         Account account = new Account(fName, add, bday, gen, accType, bal, pin, accountNumber);
