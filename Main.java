@@ -35,6 +35,7 @@ public class Main {
                         double bal = 0;
                         int accountNumber = 0;
 
+                        //General information
                         System.out.println("Please enter your full name: ");
                         fName = sc.nextLine();
                         System.out.println("Please enter your address: ");
@@ -43,12 +44,48 @@ public class Main {
                         bday = sc.nextLine();
                         System.out.println("Please enter your gender: ");
                         gen = sc.nextLine();
-                        System.out.println("Please enter your account type: ");
-                        accType = sc.nextLine();
 
-                        //Lagyan ng if statement para sa account type
+                        //Account information
+                        System.out.println("Please enter your account type ( SA - Savings | CA - Current Account): ");
+                        while(true){
+                            String accTypeInput = sc.nextLine();
+                            if(accTypeInput.equalsIgnoreCase("SA") || accTypeInput.equalsIgnoreCase("CA")){
+                                accType = accTypeInput;
+                                break;
+                            }
+                            else{
+                                System.out.println("Please enter a valid account type.");
+                            }
+                        }
+
+                        //Initial Deposit
                         System.out.println("Please enter your initial deposit: ");
-                        bal = sc.nextDouble();
+                        while(true){
+                            try{
+                                bal = sc.nextDouble();
+                                if(accType.matches("SA")){
+                                    if(bal > 5000){
+                                        break;
+                                    }else{
+                                    System.out.println("A Savings Account Requires a minimum amount of 5000.");
+                                    }
+                                }
+                                
+                                if(accType.matches("CA")){
+                                    if(bal > 10000){
+                                        break;
+                                    }else{
+                                        System.out.println("A Savings Account Requires a minimum amount of 5000.");
+                                    }
+                                }
+                            }
+                            catch(InputMismatchException e){
+                                System.out.println("Please enter a valid amount.");
+                                sc.nextLine();
+                            }
+                        }
+
+                        //Pin
                         System.out.println("Please enter your pin: ");
                         sc.nextLine();
                         while (true) {
@@ -62,7 +99,6 @@ public class Main {
                         }
 
                         //Verify information
-
                         System.out.println("Please verify all information that you have provided: ");
                         System.out.println("Full Name: " + fName);
                         System.out.println("Address: " + add);
@@ -72,6 +108,7 @@ public class Main {
                         System.out.println("Initial Deposit: " + bal);
                         System.out.println("Pin: " + pin);
 
+                        //Verification
                         System.out.println("Is the information correct? (Y/N)");
                         String verify = sc.nextLine();
                         if (verify.equalsIgnoreCase("N")) {
@@ -100,7 +137,25 @@ public class Main {
                         
                         break;
                     case 2: // Balance
+                        System.out.println("Please enter account number: ");
+                        String accNum = sc.nextLine();
+                        fr = new BufferedReader(new FileReader("Accounts\\"+ accNum + ".txt"));
+                        System.out.println("Please enter your pin: ");
+                        String pinInput = sc.nextLine();
+                        int linePin = 1;
                         
+                        while ((pinInput = fr.readLine()) != null) {
+                            if(linePin == 7){
+                                if(pinInput.matches(pinInput)){
+                                    System.out.println("Your current balance is: " + fr.readLine());
+                                    pause();
+                                }
+                                else{
+                                    System.out.println("Invalid pin.");
+                                    break;
+                                }
+                            }
+                        }
                         break;
                     case 3: // Deposit
                         
@@ -110,11 +165,13 @@ public class Main {
                         break;
                     case 5: // Account Info
                         System.out.println("Please enter account number: ");
-                        String accNum = sc.nextLine();
+                        String accInfo = sc.nextLine();
 
-                        //Add Pin verification
+                        fr = new BufferedReader(new FileReader("Accounts\\"+ accInfo + ".txt"));
 
-                        fr = new BufferedReader(new FileReader("Accounts\\"+ accNum + ".txt"));
+                        
+
+                        
                         String chr;
                         int line = 1;
 
@@ -130,6 +187,7 @@ public class Main {
                             System.out.println(chr);
                             line++;
                         }
+                        pause();
                         fr.close();
                         break;
                     case 6: // Close/Delete Account
@@ -161,6 +219,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("Press enter to continue...");
         sc.nextLine();
+        sc.close();
     }
 
 }
