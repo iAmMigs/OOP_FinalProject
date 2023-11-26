@@ -97,7 +97,7 @@ public class Main {
                         accounts.add(account);
 
                         System.out.println("Account created successfully! Your account number is " + accountNumber);
-                        pause();
+                        
                         break;
                     case 2: // Balance
                         
@@ -161,7 +161,6 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("Press enter to continue...");
         sc.nextLine();
-        sc.close();
     }
 
 }
