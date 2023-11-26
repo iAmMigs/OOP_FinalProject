@@ -79,7 +79,7 @@ public class Main {
                         }
 
                         //Inforrmation verified and creating account
-                        accountNumber = AccountInterface.accdId;
+                        accountNumber = AccountInterface.accId;
 
                         Account account = new Account(fName, add, bday, gen, accType, bal, pin, accountNumber);
 
