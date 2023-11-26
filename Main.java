@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedReader;
+import java.io.FileReader;
 
 public class Main {
     public static void main(String[] args) {
@@ -113,7 +114,7 @@ public class Main {
 
                         //Add Pin verification
 
-                        fr = new BufferedReader(new FileReader("Accounts\\" + accNum + ".txt"));
+                        fr = new BufferedReader(new FileReader("Accounts\\"+ accNum + ".txt"));
                         String chr;
                         int line = 1;
 
@@ -148,6 +149,7 @@ public class Main {
                 pause();
             }
         }
+        sc.close();
     }
 
     public static void clearScreen() {
