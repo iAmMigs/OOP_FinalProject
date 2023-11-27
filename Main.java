@@ -64,7 +64,7 @@ public class Main {
                             try{
                                 bal = sc.nextDouble();
                                 if(accType.matches("SA")){
-                                    if(bal > 5000){
+                                    if(bal >= 5000){
                                         break;
                                     }else{
                                     System.out.println("A Savings Account Requires a minimum amount of 5000.");
@@ -72,7 +72,7 @@ public class Main {
                                 }
                                 
                                 if(accType.matches("CA")){
-                                    if(bal > 10000){
+                                    if(bal >= 10000){
                                         break;
                                     }else{
                                         System.out.println("A Savings Account Requires a minimum amount of 5000.");
@@ -134,7 +134,7 @@ public class Main {
                         accounts.add(account);
 
                         System.out.println("Account created successfully! Your account number is " + accountNumber);
-                        
+                        pause();
                         break;
                     case 2: // Balance
                         System.out.println("Please enter account number: ");
@@ -142,20 +142,7 @@ public class Main {
                         fr = new BufferedReader(new FileReader("Accounts\\"+ accNum + ".txt"));
                         System.out.println("Please enter your pin: ");
                         String pinInput = sc.nextLine();
-                        int linePin = 1;
                         
-                        while ((pinInput = fr.readLine()) != null) {
-                            if(linePin == 7){
-                                if(pinInput.matches(pinInput)){
-                                    System.out.println("Your current balance is: " + fr.readLine());
-                                    pause();
-                                }
-                                else{
-                                    System.out.println("Invalid pin.");
-                                    break;
-                                }
-                            }
-                        }
                         break;
                     case 3: // Deposit
                         
@@ -170,23 +157,38 @@ public class Main {
                         String accInfo = sc.nextLine();
 
                         fr = new BufferedReader(new FileReader("Accounts\\"+ accInfo + ".txt"));
-
-                        
-
                         
                         String chr;
                         int line = 1;
 
                         while ((chr = fr.readLine()) != null) {
-                            if(line == 1) System.out.print("Account Number: ");
-                            else if(line == 2) System.out.print("Name: ");
-                            else if(line == 3) System.out.print("Address: ");
-                            else if(line == 4) System.out.print("Birthday: ");
-                            else if(line == 5) System.out.print("Gemder: ");
-                            else if(line == 6) System.out.print("Account Type:");
-                            else if(line == 7) System.out.print("Initial Deposit: ");
-                            else if(line == 8) System.out.print("Current Balance: ");
-                            System.out.println(chr);
+                            if(line == 1){
+                                System.out.print("Account Number: " + accInfo + "\n");
+                            }
+                            else if(line == 2){ 
+                                System.out.print("Name: ");
+                                System.out.print(chr);
+                            }
+                            else if(line == 3){
+                                System.out.print("\nAddress: ");
+                                System.out.print(chr);
+                            }
+                            else if(line == 4){
+                                System.out.print("\nBirthday: ");
+                                System.out.print(chr);
+                            }
+                            else if(line == 5){
+                                System.out.print("\nGender: ");
+                                System.out.print(chr);
+                            }
+                            else if(line == 6){
+                                System.out.print("\nAccount Type: ");
+                                System.out.print(chr);
+                            }
+                            else if(line == 7){
+                                System.out.print("\nBalance: ");
+                                System.out.print(chr);
+                            }
                             line++;
                         }
                         pause();
@@ -219,9 +221,8 @@ public class Main {
 
     public static void pause() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Press enter to continue...");
+        System.out.println("\nPress enter to continue...");
         sc.nextLine();
-        sc.close();
     }
 
 }
