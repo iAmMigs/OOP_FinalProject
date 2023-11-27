@@ -142,45 +142,31 @@ public class Main {
                     case 2: // Balance
                         System.out.println("Please enter account number: ");
                         String accNum = sc.nextLine();
-                        fr = new BufferedReader(new FileReader("Accounts\\"+ accNum + ".txt"));
+                        fr = new BufferedReader(new FileReader("Accounts\\" + accNum + ".txt"));
                         System.out.println("Please enter your pin: ");
                         String pinInput = sc.nextLine();
-                        
-                        String chrBal;
-                        int lineBal = 1;
+                        String pinTemp = "", BalTemp = "", chrTemp;
+                        int lineTemp = 1;
 
-                        while ((chrBal = fr.readLine()) != null) {
-                            if(lineBal == 1){
-                                System.out.print("Account Number: " + accNum + "\n");
+                        while ((chrTemp = fr.readLine()) != null) {
+                            if(lineTemp == 7){
+                                BalTemp = chrTemp;
                             }
-                            else if(lineBal == 2){ 
-                                System.out.print("Name: ");
-                                System.out.print(chrBal);
+                            else if(lineTemp == 8){
+                                pinTemp = chrTemp;
                             }
-                            else if(lineBal == 3){
-                                System.out.print("\nAddress: ");
-                                System.out.print(chrBal);
-                            }
-                            else if(lineBal == 4){
-                                System.out.print("\nBirthday: ");
-                                System.out.print(chrBal);
-                            }
-                            else if(lineBal == 5){
-                                System.out.print("\nGender: ");
-                                System.out.print(chrBal);
-                            }
-                            else if(lineBal == 6){
-                                System.out.print("\nAccount Type: ");
-                                System.out.print(chrBal);
-                            }
-                            else if(lineBal == 7){
-                                System.out.print("\nBalance: ");
-                                System.out.print(chrBal);
-                            }
-                            lineBal++;
+                            lineTemp++;
                         }
-
-
+                        
+                        if(pinTemp.matches(pinInput)){
+                            System.out.println("Your balance is " + BalTemp);
+                        }
+                        else{
+                            System.out.println("Invalid pin. Please try again.");
+                        }
+                        
+                        fr.close();
+                        pause();
                         break;
                     case 3: // Deposit
                         
