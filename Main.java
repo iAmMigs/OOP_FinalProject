@@ -146,38 +146,38 @@ public class Main {
                         System.out.println("Please enter your pin: ");
                         String pinInput = sc.nextLine();
                         
-                        String chr;
-                        int line = 1;
+                        String chrBal;
+                        int lineBal = 1;
 
-                        while ((chr = fr.readLine()) != null) {
-                            if(line == 1){
-                                System.out.print("Account Number: " + accInfo + "\n");
+                        while ((chrBal = fr.readLine()) != null) {
+                            if(lineBal == 1){
+                                System.out.print("Account Number: " + accNum + "\n");
                             }
-                            else if(line == 2){ 
+                            else if(lineBal == 2){ 
                                 System.out.print("Name: ");
-                                System.out.print(chr);
+                                System.out.print(chrBal);
                             }
-                            else if(line == 3){
+                            else if(lineBal == 3){
                                 System.out.print("\nAddress: ");
-                                System.out.print(chr);
+                                System.out.print(chrBal);
                             }
-                            else if(line == 4){
+                            else if(lineBal == 4){
                                 System.out.print("\nBirthday: ");
-                                System.out.print(chr);
+                                System.out.print(chrBal);
                             }
-                            else if(line == 5){
+                            else if(lineBal == 5){
                                 System.out.print("\nGender: ");
-                                System.out.print(chr);
+                                System.out.print(chrBal);
                             }
-                            else if(line == 6){
+                            else if(lineBal == 6){
                                 System.out.print("\nAccount Type: ");
-                                System.out.print(chr);
+                                System.out.print(chrBal);
                             }
-                            else if(line == 7){
+                            else if(lineBal == 7){
                                 System.out.print("\nBalance: ");
-                                System.out.print(chr);
+                                System.out.print(chrBal);
                             }
-                            line++;
+                            lineBal++;
                         }
 
 
@@ -198,29 +198,30 @@ public class Main {
 
                         String chr;
                         int line = 1;
+                        System.out.print("Account Number: " + accInfo + "\n");
 
                         while ((chr = fr.readLine()) != null) {
                             if(line == 1){
-                                System.out.print("Account Number: " + accInfo + "\n");
+                                System.out.print("Name: ");
                             }
                             else if(line == 2){ 
-                                System.out.print("Name: ");
-                                System.out.print(chr);
-                            }
-                            else if(line == 3){
                                 System.out.print("\nAddress: ");
                                 System.out.print(chr);
                             }
-                            else if(line == 4){
+                            else if(line == 3){
                                 System.out.print("\nBirthday: ");
                                 System.out.print(chr);
                             }
-                            else if(line == 5){
+                            else if(line == 4){
                                 System.out.print("\nGender: ");
                                 System.out.print(chr);
                             }
-                            else if(line == 6){
+                            else if(line == 5){
                                 System.out.print("\nAccount Type: ");
+                                System.out.print(chr);
+                            }
+                            else if(line == 6){
+                                System.out.print("\nInitial Deposit: ");
                                 System.out.print(chr);
                             }
                             else if(line == 7){
