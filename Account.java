@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Account extends Info{
 
     public Account(){
@@ -20,7 +22,12 @@ public class Account extends Info{
         this.initialDeposit = initialDeposit;
         this.balance = initialDeposit;
         this.pin = pin;
-        this.accountNumber = accountNumber;
+        this.accountNumber = generateAccNum();
+    }
+
+    private int generateAccNum(){
+        Random random = new Random();
+        return random.nextInt(90000) + 10000;
     }
 
 }

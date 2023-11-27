@@ -1,4 +1,4 @@
-public class Info implements AccountInterface {
+public class Info{
     protected String fullName;
     protected String address;
     protected String birthday;

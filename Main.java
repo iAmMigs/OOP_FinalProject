@@ -33,7 +33,7 @@ public class Main {
                     case 1: // Create Account
                         String fName = "" , add = "", bday = "", gen = "", accType = "", pin = "";
                         double bal = 0, initial = 0;
-                        int accountNumber = 0;
+                        int accNum = 0;
 
                         //General information
                         System.out.println("Please enter your full name: ");
@@ -119,11 +119,11 @@ public class Main {
                         }
 
                         //Inforrmation verified and creating account
-                        accountNumber = AccountInterface.accId;
+                        
 
-                        Account account = new Account(fName, add, bday, gen, accType, initial, bal, pin, accountNumber);
-
-                        fw = new FileWriter("Accounts\\" + accountNumber + ".txt");
+                        Account account = new Account(fName, add, bday, gen, accType, initial, bal, pin, accNum);
+                        accNum = account.accountNumber;
+                        fw = new FileWriter("Accounts\\" + accNum + ".txt");
                         fw.write(fName + "\n");
                         fw.write(add + "\n");
                         fw.write(bday + "\n");
@@ -136,13 +136,13 @@ public class Main {
 
                         accounts.add(account);
 
-                        System.out.println("Account created successfully! Your account number is " + accountNumber);
+                        System.out.println("Account created successfully! Your account number is " + accNum);
                         pause();
                         break;
                     case 2: // Balance
                         System.out.println("Please enter account number: ");
-                        String accNum = sc.nextLine();
-                        fr = new BufferedReader(new FileReader("Accounts\\" + accNum + ".txt"));
+                        String accNumSearch = sc.nextLine();
+                        fr = new BufferedReader(new FileReader("Accounts\\" + accNumSearch + ".txt"));
                         System.out.println("Please enter your pin: ");
                         String pinInput = sc.nextLine();
                         String pinTemp = "", BalTemp = "", chrTemp;
