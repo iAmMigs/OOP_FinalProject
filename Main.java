@@ -32,7 +32,7 @@ public class Main {
                 switch (input) {
                     case 1: // Create Account
                         String fName = "" , add = "", bday = "", gen = "", accType = "", pin = "";
-                        double bal = 0;
+                        double bal = 0, initial = 0;
                         int accountNumber = 0;
 
                         //General information
@@ -62,9 +62,10 @@ public class Main {
                         System.out.println("Please enter your initial deposit: ");
                         while(true){
                             try{
-                                bal = sc.nextDouble();
+                                initial = sc.nextDouble();
                                 if(accType.matches("SA")){
-                                    if(bal >= 5000){
+                                    if(initial >= 5000){
+                                        bal = initial;
                                         break;
                                     }else{
                                     System.out.println("A Savings Account Requires a minimum amount of 5000.");
@@ -72,10 +73,11 @@ public class Main {
                                 }
                                 
                                 if(accType.matches("CA")){
-                                    if(bal >= 10000){
+                                    if(initial >= 10000){
+                                        bal = initial;
                                         break;
                                     }else{
-                                        System.out.println("A Savings Account Requires a minimum amount of 5000.");
+                                        System.out.println("A Current Account Requires a minimum amount of 10000.");
                                     }
                                 }
                             }
@@ -105,7 +107,7 @@ public class Main {
                         System.out.println("Birthday: " + bday);
                         System.out.println("Gender: " + gen);
                         System.out.println("Account Type: " + accType);
-                        System.out.println("Initial Deposit: " + bal);
+                        System.out.println("Initial Deposit: " + initial);
                         System.out.println("Pin: " + pin);
 
                         //Verification
@@ -119,7 +121,7 @@ public class Main {
                         //Inforrmation verified and creating account
                         accountNumber = AccountInterface.accId;
 
-                        Account account = new Account(fName, add, bday, gen, accType, bal, pin, accountNumber);
+                        Account account = new Account(fName, add, bday, gen, accType, initial, bal, pin, accountNumber);
 
                         fw = new FileWriter("Accounts\\" + accountNumber + ".txt");
                         fw.write(fName + "\n");
@@ -127,6 +129,7 @@ public class Main {
                         fw.write(bday + "\n");
                         fw.write(gen + "\n");
                         fw.write(accType + "\n");
+                        fw.write(initial + "\n");
                         fw.write(bal + "\n");
                         fw.write(pin + "\n");
                         fw.close();
@@ -143,6 +146,41 @@ public class Main {
                         System.out.println("Please enter your pin: ");
                         String pinInput = sc.nextLine();
                         
+                        String chr;
+                        int line = 1;
+
+                        while ((chr = fr.readLine()) != null) {
+                            if(line == 1){
+                                System.out.print("Account Number: " + accInfo + "\n");
+                            }
+                            else if(line == 2){ 
+                                System.out.print("Name: ");
+                                System.out.print(chr);
+                            }
+                            else if(line == 3){
+                                System.out.print("\nAddress: ");
+                                System.out.print(chr);
+                            }
+                            else if(line == 4){
+                                System.out.print("\nBirthday: ");
+                                System.out.print(chr);
+                            }
+                            else if(line == 5){
+                                System.out.print("\nGender: ");
+                                System.out.print(chr);
+                            }
+                            else if(line == 6){
+                                System.out.print("\nAccount Type: ");
+                                System.out.print(chr);
+                            }
+                            else if(line == 7){
+                                System.out.print("\nBalance: ");
+                                System.out.print(chr);
+                            }
+                            line++;
+                        }
+
+
                         break;
                     case 3: // Deposit
                         
@@ -157,7 +195,7 @@ public class Main {
                         String accInfo = sc.nextLine();
 
                         fr = new BufferedReader(new FileReader("Accounts\\"+ accInfo + ".txt"));
-                        
+
                         String chr;
                         int line = 1;
 

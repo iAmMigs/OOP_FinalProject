@@ -11,12 +11,13 @@ public class Account extends Info{
         this.accountNumber = 0;
     }
 
-    public Account(String fullName, String address, String birthday,String gender, String accountType, double initialDeposit, String pin, int accountNumber) {
+    public Account(String fullName, String address, String birthday,String gender, String accountType, double initialDeposit, double balance, String pin, int accountNumber) {
         this.fullName = fullName;
         this.address = address;
         this.birthday = birthday;
         this.gender = gender;
         this.accountType = accountType;
+        this.initialDeposit = initialDeposit;
         this.balance = initialDeposit;
         this.pin = pin;
         this.accountNumber = accountNumber;
