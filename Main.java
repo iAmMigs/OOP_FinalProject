@@ -40,7 +40,7 @@ public class Main {
                         fName = sc.nextLine();
                         System.out.println("Please enter your address: ");
                         add = sc.nextLine();
-                        System.out.println("Please enter your birthday: ");
+                        System.out.println("Please enter your birthday (MM/DD/YYYY): ");
                         bday = sc.nextLine();
                         System.out.println("Please enter your gender: ");
                         gen = sc.nextLine();
