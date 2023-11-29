@@ -1,5 +1,7 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.ArrayList;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -40,8 +42,20 @@ public class Main {
                         fName = sc.nextLine();
                         System.out.println("Please enter your address: ");
                         add = sc.nextLine();
-                        System.out.println("Please enter your birthday (MM/DD/YYYY): ");
-                        bday = sc.nextLine();
+                        while(true){
+                            System.out.println("Please enter your birthday (MM/DD/YYYY): ");
+                            bday = sc.nextLine();
+                            String regex = "^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{4}$";
+
+                            Pattern pattern = Pattern.compile(regex);
+                            Matcher matcher = pattern.matcher(bday);
+                            if (matcher.matches()) {
+                                break;
+                            } else {
+                                System.out.println("Invalid birthday format. Please use DD/MM/YYYY.\n");
+                            }
+                        }
+
                         System.out.println("Please enter your gender: ");
                         gen = sc.nextLine();
 
@@ -139,7 +153,7 @@ public class Main {
                         System.out.println("Account created successfully! Your account number is " + accNum);
                         pause();
                         break;
-                    case 2: // Balance
+                    case 2: 
                         System.out.println("Please enter account number: ");
                         String accNumSearch = sc.nextLine();
                         fr = new BufferedReader(new FileReader("Accounts\\" + accNumSearch + ".txt"));
@@ -168,14 +182,37 @@ public class Main {
                         fr.close();
                         pause();
                         break;
-                    case 3: // Deposit
-                        
-
-                        break;
-                    case 4: // Witthdraw
-                        
+                    case 3: 
+                        System.out.println("Please enter account number: ");
+                        String depositAccNum = sc.nextLine();
+                        System.out.println("Please enter the deposit amount: ");
+                        double depositAmount = sc.nextDouble();
                     
+                        for (Account acc : accounts) {
+                            if (Integer.toString(acc.accountNumber).equals(depositAccNum)) {
+                                acc.deposit(depositAmount);
+                                break;
+                            }
+                        }
+                        pause();
                         break;
+                    
+                    case 4: // Withdraw
+                        System.out.println("Please enter account number: ");
+                        String withdrawAccNum = sc.nextLine();
+                        System.out.println("Please enter the withdrawal amount: ");
+                        double withdrawAmount = sc.nextDouble();
+                    
+                        for (Account acc : accounts) {
+                            if (Integer.toString(acc.accountNumber).equals(withdrawAccNum)) {
+                                acc.withdraw(withdrawAmount);
+                                break;
+                            }
+                        }
+                        pause();
+                        break;
+                    
+
                     case 5: // Account Info
                         System.out.println("Please enter account number: ");
                         String accInfo = sc.nextLine();
@@ -219,9 +256,36 @@ public class Main {
                         pause();
                         fr.close();
                         break;
-                    case 6: // Close/Delete Account
-                        
+                    case 6:
+                        System.out.println("Please enter account number to close: ");
+                        String closeAccNum = sc.nextLine();
+
+                        Account accountToClose = null;
+                        for (Account acc : accounts) {
+                            if (Integer.toString(acc.accountNumber).equals(closeAccNum)) {
+                                accountToClose = acc;
+                                break;
+                            }
+                        }
+
+                        if (accountToClose != null) {
+                            System.out.println("Are you sure you want to close this account? (Y/N)");
+                            String confirmation = sc.nextLine();
+                            
+                            if (confirmation.equalsIgnoreCase("Y")) {
+                                accountToClose.deleteAccount();
+                                accounts.remove(accountToClose);
+                                System.out.println("Account closed successfully.");
+                            } else {
+                                System.out.println("Account closure canceled.");
+                            }
+                        } else {
+                            System.out.println("Account not found. Please enter a valid account number.");
+                        }
+
+                        pause();
                         break;
+
                     case 7: // Exit
                         System.out.println("Thank you for using WeLiveWeLoveWeLie Banking Corporation!");
                         System.exit(0);
