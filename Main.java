@@ -43,7 +43,7 @@ public class Main {
                         System.out.println("Please enter your address: ");
                         add = sc.nextLine();
                         while(true){
-                            System.out.println("Please enter your birthday (MM/DD/YYYY): ");
+                            System.out.println("Please enter your birthday (DD/MM/YYYY): ");
                             bday = sc.nextLine();
                             String regex = "^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{4}$";
 
