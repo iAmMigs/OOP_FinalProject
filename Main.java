@@ -32,12 +32,12 @@ public class Main {
                 input = sc.nextInt();
                 sc.nextLine();
                 switch (input) {
-                    case 1: // Create Account
+                    case 1:
                         String fName = "" , add = "", bday = "", gen = "", accType = "", pin = "";
                         double bal = 0, initial = 0;
                         int accNum = 0;
 
-                        //General information
+                        
                         System.out.println("Please enter your full name: ");
                         fName = sc.nextLine();
                         System.out.println("Please enter your address: ");
@@ -59,7 +59,7 @@ public class Main {
                         System.out.println("Please enter your gender: ");
                         gen = sc.nextLine();
 
-                        //Account information
+                        
                         System.out.println("Please enter your account type ( SA - Savings | CA - Current Account): ");
                         while(true){
                             String accTypeInput = sc.nextLine();
@@ -72,7 +72,7 @@ public class Main {
                             }
                         }
 
-                        //Initial Deposit
+                        
                         System.out.println("Please enter your initial deposit: ");
                         while(true){
                             try{
@@ -101,7 +101,7 @@ public class Main {
                             }
                         }
 
-                        //Pin
+                        
                         System.out.println("Please enter your pin: ");
                         sc.nextLine();
                         while (true) {
@@ -114,7 +114,7 @@ public class Main {
                                 }
                         }
 
-                        //Verify information
+                        
                         System.out.println("Please verify all information that you have provided: ");
                         System.out.println("Full Name: " + fName);
                         System.out.println("Address: " + add);
@@ -124,16 +124,12 @@ public class Main {
                         System.out.println("Initial Deposit: " + initial);
                         System.out.println("Pin: " + pin);
 
-                        //Verification
                         System.out.println("Is the information correct? (Y/N)");
                         String verify = sc.nextLine();
                         if (verify.equalsIgnoreCase("N")) {
                             System.out.println("Please try again.");
                             break;
-                        }
-
-                        //Inforrmation verified and creating account
-                        
+                        }            
 
                         Account account = new Account(fName, add, bday, gen, accType, initial, bal, pin, accNum);
                         accNum = account.accountNumber;
@@ -149,10 +145,10 @@ public class Main {
                         fw.close();
 
                         accounts.add(account);
-
                         System.out.println("Account created successfully! Your account number is " + accNum);
                         pause();
                         break;
+
                     case 2: 
                         System.out.println("Please enter account number: ");
                         String accNumSearch = sc.nextLine();
@@ -197,7 +193,7 @@ public class Main {
                         pause();
                         break;
                     
-                    case 4: // Withdraw
+                    case 4:
                         System.out.println("Please enter account number: ");
                         String withdrawAccNum = sc.nextLine();
                         System.out.println("Please enter the withdrawal amount: ");
@@ -213,7 +209,7 @@ public class Main {
                         break;
                     
 
-                    case 5: // Account Info
+                    case 5:
                         System.out.println("Please enter account number: ");
                         String accInfo = sc.nextLine();
 
@@ -286,7 +282,7 @@ public class Main {
                         pause();
                         break;
 
-                    case 7: // Exit
+                    case 7:
                         System.out.println("Thank you for using WeLiveWeLoveWeLie Banking Corporation!");
                         System.exit(0);
                         break;
