@@ -222,6 +222,7 @@ public class Main {
                         while ((chr = fr.readLine()) != null) {
                             if(line == 1){
                                 System.out.print("Name: ");
+                                System.out.print(chr);
                             }
                             else if(line == 2){ 
                                 System.out.print("\nAddress: ");
